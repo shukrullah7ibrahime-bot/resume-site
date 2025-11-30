@@ -1,0 +1,138 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: antiquewhite;
+}
+
+/* Blue header */
+.header {
+    background-color: #446e94;
+    color: rgb(226, 207, 207);
+    padding: 1vw 2vw;          /* responsive padding */
+    font-size: 7vw;            /* scales with screen width */
+    font-weight: 300;
+    position: relative;
+    min-height: 200px;         /* keeps structure on small screens */
+}
+
+.name {
+    position: absolute;
+    bottom: 10px;
+    left: 20%;
+    transform: translateX(-50%);
+    font-size: 3vw;        /* bigger */
+    font-weight: 700;      /* bold */
+    color: white;
+}
+
+
+/* Photo container */
+.photo-wrapper {
+    position: absolute;
+    right: 5vw;                /* responsive distance from right */
+    top: 100%;                  /* slightly down */
+    transform: translateY(-50%);
+
+    width: 25vw;               /* responsive width */
+    height: 25vw;              /* responsive height */
+    min-width: 150px;          /* minimum size on very small screens */
+    min-height: 150px;
+    max-width: 320px;          /* do not exceed original size */
+    max-height: 320px;
+}
+
+/* Photo style */
+.photo {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+/* ----------- MOBILE FIXES ----------- */
+@media (max-width: 600px) {
+    .header {
+        font-size: 9vw;            /* larger text for mobile */
+        padding: 10vw 6vw;
+    }
+    
+    .photo-wrapper {
+        width: 40vw;
+        height: 40vw;
+        right: 4vw;
+        top: 70%;                  /* slightly lower for mobile */
+    }
+}
+
+/* ----------- TABLET ----------- */
+@media (min-width: 601px) and (max-width: 1024px) {
+    .header {
+        font-size: 5vw;
+    }
+    
+    .photo-wrapper {
+        width: 30vw;
+        height: 30vw;
+    }
+}
+
+
+/* White content area */
+.content {
+    padding: 40px 60px;
+    font-size: 20px;
+    color: #555;
+    line-height: 2;
+    padding-top: 120px; /* space under floating image */
+}
+
+.function {
+    text-align: center;
+    font-size: 28px;
+    margin-top: 30px;
+}
+
+.function {
+    font-size: 3vw;
+    font-weight: 700;
+    color: white;
+    text-align: center;
+
+    /* Positioning — keep or remove as needed */
+    position: relative;
+
+    /* Glow animation */
+    animation: sparkleGlow 3s infinite linear;
+}
+
+/* Rainbow glowing animation */
+@keyframes sparkleGlow {
+    0% {
+        text-shadow: 0 0 8px #ff0000, 0 0 15px #ff6600, 0 0 25px #ffcc00;
+    }
+    25% {
+        text-shadow: 0 0 8px #00ff00, 0 0 15px #00cc66, 0 0 25px #00ffff;
+    }
+    50% {
+        text-shadow: 0 0 8px #0066ff, 0 0 15px #6600ff, 0 0 25px #cc00ff;
+    }
+    75% {
+        text-shadow: 0 0 8px #ff0099, 0 0 15px #ff0066, 0 0 25px #ff3300;
+    }
+    100% {
+        text-shadow: 0 0 8px #ff0000, 0 0 15px #ff6600, 0 0 25px #ffcc00;
+    }
+}
+
+.paragraph{
+    margin: 10px;
+    font-size: 12px;
+    color: rgb(11, 150, 55);
+}
+
+.heading{
+    color:#f20a0ad8;
+    font-style: bold;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
