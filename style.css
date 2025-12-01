@@ -1,20 +1,112 @@
+/* ===== Base Body Style ===== */
 body {
     margin: 0;
-    font-family: Arial, sans-serif;
-    background-color: antiquewhite;
+    background: #aed0ef;  /* your main color */
+    position: relative;
+    overflow-x: hidden;
+    color: white;
 }
+
+
+/* ===== 1. ANIMATED RIGHT-SIDE GRADIENT AREA ===== */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    right: -30%;
+    width: 60%;          /* WIDTH of the animated right side */
+    height: 100%;
+    background: conic-gradient(
+        from 180deg at 70% 50%,
+        rgba(255,85,110,0.18),
+        rgba(255,200,80,0.15),
+        rgba(90,200,255,0.15),
+        rgba(255,110,110,0.18)
+    );
+    animation: sweepRotate 14s linear infinite;
+    mix-blend-mode: overlay;
+    pointer-events: none;
+    z-index: 1;
+}
+
+
+/* ===== 2. THIN MULTI-COLOR CYCLING STRIPE ===== */
+body::after {
+    content: "";
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 6px;          /* STRIPE thickness */
+    height: 100%;
+    background: linear-gradient(180deg,
+        #ff5f6d,
+        #ffc371,
+        #7ef3b6,
+        #5fa8ff
+    );
+    animation: hueShift 4s linear infinite;
+    z-index: 2;
+    pointer-events: none;
+}
+
+
+/* ===== Animations ===== */
+@keyframes sweepRotate {
+    0%   { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@keyframes hueShift {
+    0%   { filter: hue-rotate(0deg); }
+    100% { filter: hue-rotate(360deg); }
+}
+
+
+/* ===== Motion-Safe ===== */
+@media (prefers-reduced-motion: reduce) {
+    body::before,
+    body::after {
+        animation: none;
+    }
+}
+
+
+
 
 /* Blue header */
 .header {
-    background-color: #446e94;
+    background-color: #2028c0f9;
     color: rgb(226, 207, 207);
-    padding: 1vw 2vw;          /* responsive padding */
-    font-size: 7vw;            /* scales with screen width */
+    padding: 1vw 2vw;
+    font-size: 7vw;
     font-weight: 300;
-    position: relative;
-    min-height: 200px;         /* keeps structure on small screens */
+    position: fixed;     /* <--- STICKY HEADER */
+    top: 0;              /* <--- stick to top */
+    left: 0;
+    width: 100%;
+    z-index: 999;        /* above all elements */
+    min-height: 200px;
 }
 
+::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    right: -30%;
+    width: 60%;          /* WIDTH of the animated right side */
+    height: 100%;
+    background: conic-gradient(
+        from 180deg at 70% 50%,
+        rgba(255,85,110,0.18),
+        rgba(255,200,80,0.15),
+        rgba(90,200,255,0.15),
+        rgba(255,110,110,0.18)
+    );
+    animation: sweepRotate 14s linear infinite;
+    mix-blend-mode: overlay;
+    pointer-events: none;
+    z-index: 1;
+}
 .name {
     position: absolute;
     bottom: 10px;
@@ -81,10 +173,11 @@ body {
 .content {
     padding: 40px 60px;
     font-size: 20px;
-    color: #555;
+    color: #070707;
     line-height: 2;
-    padding-top: 120px; /* space under floating image */
+    padding-top: 260px; /* ← increased to clear fixed header */
 }
+
 
 .function {
     text-align: center;
@@ -125,12 +218,15 @@ body {
 }
 
 .paragraph{
+    font-family:monospace;
     margin: 10px;
-    font-size: 12px;
-    color: rgb(11, 150, 55);
+    font-size: 24px;
+    color: rgb(13, 14, 13);
 }
 
 .heading{
+     font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
     color:#f20a0ad8;
     font-style: bold;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
