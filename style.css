@@ -118,19 +118,18 @@ body::after {
 }
 
 
-/* Photo container */
+/* Photo container — fully responsive */
 .photo-wrapper {
     position: absolute;
-    right: 5vw;                /* responsive distance from right */
-    top: 100%;                  /* slightly down */
-    transform: translateY(-50%);
+    right: 4vw;           
+    top: 110px;           /* keeps it under the header */
+    
+    width: clamp(120px, 22vw, 280px);   /* auto scales */
+    height: clamp(120px, 22vw, 280px);
 
-    width: 25vw;               /* responsive width */
-    height: 25vw;              /* responsive height */
-    min-width: 150px;          /* minimum size on very small screens */
-    min-height: 150px;
-    max-width: 320px;          /* do not exceed original size */
-    max-height: 320px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 /* Photo style */
@@ -141,33 +140,28 @@ body::after {
     object-fit: cover;
 }
 
-/* ----------- MOBILE FIXES ----------- */
+/* ----------- MOBILE ----------- */
 @media (max-width: 600px) {
-    .header {
-        font-size: 9vw;            /* larger text for mobile */
-        padding: 10vw 6vw;
-    }
-    
     .photo-wrapper {
-        width: 40vw;
-        height: 40vw;
-        right: 4vw;
-        top: 70%;                  /* slightly lower for mobile */
+        right: 50%;
+        transform: translateX(50%);   /* center for small screens */
+        top: 160px;
+
+        width: clamp(130px, 40vw, 220px);
+        height: clamp(130px, 40vw, 220px);
     }
 }
 
 /* ----------- TABLET ----------- */
 @media (min-width: 601px) and (max-width: 1024px) {
-    .header {
-        font-size: 5vw;
-    }
-    
     .photo-wrapper {
-        width: 30vw;
-        height: 30vw;
+        right: 5vw;
+        top: 120px;
+
+        width: clamp(150px, 30vw, 260px);
+        height: clamp(150px, 30vw, 260px);
     }
 }
-
 
 /* White content area */
 .content {
@@ -231,4 +225,5 @@ body::after {
     font-style: bold;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
+
 
